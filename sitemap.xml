@@ -6,7 +6,11 @@
 
     <!-- Homepage -->
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
@@ -14,28 +18,44 @@
 
     <!-- Course Pages -->
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/pages/business-management.html</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/pages/business-management.html</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/pages/it-computing.html</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/pages/it-computing.html</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/pages/artificial-intelligence.html</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/pages/artificial-intelligence.html</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
 
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/pages/engineering.html</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/pages/engineering.html</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
@@ -43,7 +63,11 @@
 
     <!-- Virtual Tours -->
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/pages/virtual-tours.html</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/pages/virtual-tours.html</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
@@ -51,7 +75,11 @@
 
     <!-- Media Page -->
     <url>
+<<<<<<< HEAD
         <loc>https://yourusername.github.io/eaac-pearson-btec-website/pages/media.html</loc>
+=======
+        <loc>https://mazendeebo.github.io/EAAC_Pearson/pages/media.html</loc>
+>>>>>>> page
         <lastmod>2024-11-05</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>

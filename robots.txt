@@ -2,15 +2,24 @@ User-agent: *
 Allow: /
 
 # Sitemap
+<<<<<<< HEAD
 Sitemap: https://yourusername.github.io/eaac-pearson-btec-website/sitemap.xml
+=======
+Sitemap: https://mazendeebo.github.io/EAAC_Pearson/sitemap.xml
+>>>>>>> page
 
 # Disallow certain files
 Disallow: /assets/js/
 Disallow: /assets/css/
 Disallow: /.github/
 Disallow: /README.md
+<<<<<<< HEAD
 Disallow: /GITHUB_PAGES_SETUP.md
 Disallow: /_config.yml
+=======
+Disallow: /DEPLOYMENT.md
+Disallow: /package.json
+>>>>>>> page
 
 # Allow important directories
 Allow: /assets/images/
