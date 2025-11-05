@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+  command = "echo 'No build required for static site'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/business"
+  to = "/pages/business-management.html"
+  status = 301
+
+[[redirects]]
+  from = "/it"
+  to = "/pages/it-computing.html"
+  status = 301
+
+[[redirects]]
+  from = "/ai"
+  to = "/pages/artificial-intelligence.html"
+  status = 301
+
+[[redirects]]
+  from = "/engineering"
+  to = "/pages/engineering.html"
+  status = 301
