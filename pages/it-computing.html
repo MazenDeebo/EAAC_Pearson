@@ -7,8 +7,8 @@
     <meta name="keywords" content="EAAC, Pearson BTEC, IT Computing, HND Computing, Software Engineering, Cyber Security, Network Engineering, Data Analytics, Egypt">
     <title>IT & Computing - Pearson BTEC Level 5 HND | EAAC Group</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <!-- Favicon - Add your favicon here -->
+    <!-- <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico"> -->
     
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -22,29 +22,35 @@
     <header class="header">
         <div class="container">
             <nav class="nav-container">
-                <div class="logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/Eaac-Logo-evolution-1.jpg" alt="EAAC Group Logo" class="logo-img">
+                <div class="logo-left">
+                    <a href="../index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                        <img src="../assets/images/logos/Eaac-Logo-evolution-1.jpg" alt="EAAC Group" class="logo-img">
                     </a>
                 </div>
                 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about">About EAAC</a></li>
-                    <li><a href="../index.html#courses" class="active">Courses</a></li>
-                    <li><a href="../index.html#pearson">Pearson BTEC</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="virtual-tours.html">Virtual Tours</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle active">Certified Courses <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="business-management.html">Business & Management</a></li>
+                            <li><a href="it-computing.html" class="active">IT & Computing</a></li>
+                            <li><a href="artificial-intelligence.html">Artificial Intelligence</a></li>
+                            <li><a href="engineering.html">Engineering</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pearson-btec.html">Pearson BTEC</a></li>
+                    <li><a href="online-application.html">Online Application</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
-                
-                <div class="pearson-logo">
-                    <img src="../assets/images/pearson_logo.png" alt="Pearson BTEC Logo" class="pearson-logo-img">
-                </div>
                 
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
+                
+                <div class="logo-right">
+                    <img src="../assets/images/logos/pearson_logo.png" alt="Pearson BTEC" class="logo-img">
+                </div>
             </nav>
         </div>
     </header>
@@ -158,7 +164,7 @@
             </div>
             
             <div class="modules-container">
-                <h3>15 Mandatory Units</h3>
+                <h3>15 Units</h3>
                 <div class="modules-grid">
                     <div class="module-item">
                         <div class="module-number">1</div>
@@ -223,13 +229,13 @@
                     <div class="module-item">
                         <div class="module-number">11</div>
                         <div class="module-title">Emerging Technologies</div>
-                        <p>Latest technological developments and trends</p>
+                        <p>Latest technological developments and trends in IT computing</p>
                     </div>
                     
                     <div class="module-item">
                         <div class="module-number">12</div>
                         <div class="module-title">System Design & Analysis</div>
-                        <p>Systems architecture and design principles</p>
+                        <p>Systems architecture and design principles in IT computing</p>
                     </div>
                     
                     <div class="module-item">
@@ -405,8 +411,8 @@
                 
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>Villa No. 132 Tiba St.</p>
-                    <p>Sporting Al-Soghra, Alexandria, Egypt</p>
+                    <p>Villa 41 Dr Ibrahim Refaat St.</p>
+                    <p>Saba Basha, Alexandria, Egypt</p>
                     <p>Phone: +20 35 911 413</p>
                     <p>Email: info@eaacgroup.org</p>
                 </div>
@@ -414,7 +420,7 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2024 EAAC Training and Consulting Group. All rights reserved. | Pearson BTEC Accredited Center</p>
-                <p>Website developed by <strong>ArabIQ Company</strong></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Website developed by <strong>ArabIQ Company</strong></p>
             </div>
         </div>
     </footer>

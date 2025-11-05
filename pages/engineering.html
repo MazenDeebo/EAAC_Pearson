@@ -7,8 +7,8 @@
     <meta name="keywords" content="EAAC, Pearson BTEC, Engineering, HND Engineering, HNC Oil Gas, Mechanical Engineering, Electrical Engineering, Civil Engineering, Egypt">
     <title>Engineering - Pearson BTEC HND & HNC Programs | EAAC Group</title>
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+    <!-- Favicon - Add your favicon here -->
+    <!-- <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico"> -->
     
     <!-- CSS -->
     <link rel="stylesheet" href="../assets/css/main.css">
@@ -22,29 +22,35 @@
     <header class="header">
         <div class="container">
             <nav class="nav-container">
-                <div class="logo">
-                    <a href="../index.html">
-                        <img src="../assets/images/Eaac-Logo-evolution-1.jpg" alt="EAAC Group Logo" class="logo-img">
+                <div class="logo-left">
+                    <a href="../index.html" style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                        <img src="../assets/images/logos/Eaac-Logo-evolution-1.jpg" alt="EAAC Group" class="logo-img">
                     </a>
                 </div>
                 
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#about">About EAAC</a></li>
-                    <li><a href="../index.html#courses" class="active">Courses</a></li>
-                    <li><a href="../index.html#pearson">Pearson BTEC</a></li>
-                    <li><a href="media.html">Media</a></li>
-                    <li><a href="virtual-tours.html">Virtual Tours</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle active">Certified Courses <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="business-management.html">Business & Management</a></li>
+                            <li><a href="it-computing.html">IT & Computing</a></li>
+                            <li><a href="artificial-intelligence.html">Artificial Intelligence</a></li>
+                            <li><a href="engineering.html" class="active">Engineering</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="pearson-btec.html">Pearson BTEC</a></li>
+                    <li><a href="online-application.html">Online Application</a></li>
                     <li><a href="../index.html#contact">Contact</a></li>
                 </ul>
-                
-                <div class="pearson-logo">
-                    <img src="../assets/images/pearson_logo.png" alt="Pearson BTEC Logo" class="pearson-logo-img">
-                </div>
                 
                 <button class="mobile-menu-toggle" id="mobileMenuToggle">
                     <i class="fas fa-bars"></i>
                 </button>
+                
+                <div class="logo-right">
+                    <img src="../assets/images/logos/pearson_logo.png" alt="Pearson BTEC" class="logo-img">
+                </div>
             </nav>
         </div>
     </header>
@@ -54,7 +60,7 @@
         <div class="container">
             <div class="hero-content">
                 <h1>Engineering Programs</h1>
-                <p>Build your engineering career with globally recognized qualifications combining theoretical knowledge with practical skills through workshops and hands-on training.</p>
+                <p>Build your engineering career with globally recognized qualifications combining theoretical knowledge with practical skills through workshops and project work.</p>
                 <div style="margin-top: 2rem;">
                     <a href="#programs" class="btn btn-primary">View Programs</a>
                     <a href="#apply" class="btn btn-white" style="margin-left: 1rem;">Apply Now</a>
@@ -77,7 +83,7 @@
                     <div class="course-header">
                         <div>
                             <h3>Higher National Diploma in Engineering</h3>
-                            <p>Comprehensive engineering program with broad foundation in engineering principles</p>
+                            <p>Comprehensive engineering program with multiple specializations</p>
                         </div>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                             <span class="course-level-badge">Level 5</span>
@@ -106,8 +112,8 @@
                             <div class="card-icon">
                                 <i class="fas fa-graduation-cap"></i>
                             </div>
-                            <h4>Degree Pathway</h4>
-                            <p>Direct progression to final year</p>
+                            <h4>Degree Progression</h4>
+                            <p>Direct to final year</p>
                         </div>
                     </div>
                 </div>
@@ -117,7 +123,7 @@
                     <div class="course-header">
                         <div>
                             <h3>Higher National Certificate in Oil & Gas Facility Management</h3>
-                            <p>Essential knowledge for entry-level positions in oil and gas operations</p>
+                            <p>Specialized program for oil and gas 15 units</p>
                         </div>
                         <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
                             <span class="course-level-badge">Level 4</span>
@@ -131,7 +137,7 @@
                                 <i class="fas fa-certificate"></i>
                             </div>
                             <h4>120 Credits</h4>
-                            <p>HNC qualification</p>
+                            <p>Foundation level qualification</p>
                         </div>
                         
                         <div class="card">
@@ -139,7 +145,7 @@
                                 <i class="fas fa-industry"></i>
                             </div>
                             <h4>Industry Focus</h4>
-                            <p>Oil & gas specialization</p>
+                            <p>Oil & gas operations</p>
                         </div>
                         
                         <div class="card">
@@ -147,7 +153,7 @@
                                 <i class="fas fa-briefcase"></i>
                             </div>
                             <h4>Career Ready</h4>
-                            <p>Direct employment pathway</p>
+                            <p>Entry-level positions</p>
                         </div>
                     </div>
                 </div>
@@ -159,8 +165,8 @@
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
-                <h2>Engineering Specializations</h2>
-                <p>Develop expertise in your chosen engineering discipline with industry-relevant curriculum</p>
+                <h2>HND Engineering Specializations</h2>
+                <p>Choose your engineering discipline and develop specialized expertise</p>
             </div>
             
             <div class="specialization-grid">
@@ -173,7 +179,7 @@
                 <div class="specialization-item">
                     <i class="fas fa-bolt"></i>
                     <h4>Electrical Engineering</h4>
-                    <p>Power systems, electronics, and electrical design</p>
+                    <p>Power systems, electronics, and automation</p>
                 </div>
                 
                 <div class="specialization-item">
@@ -185,13 +191,7 @@
                 <div class="specialization-item">
                     <i class="fas fa-microchip"></i>
                     <h4>Instrumentation & Control Engineering</h4>
-                    <p>Process control, automation, and instrumentation</p>
-                </div>
-                
-                <div class="specialization-item">
-                    <i class="fas fa-oil-can"></i>
-                    <h4>Oil & Gas Engineering</h4>
-                    <p>Petroleum engineering and facility management</p>
+                    <p>Process control and automation systems</p>
                 </div>
             </div>
         </div>
@@ -202,72 +202,108 @@
         <div class="container">
             <div class="section-header">
                 <h2>Engineering Career Opportunities</h2>
-                <p>Launch your engineering career with qualifications recognized by industry and employers worldwide</p>
+                <p>Launch your engineering career with industry-recognized qualifications</p>
             </div>
             
-            <div class="career-grid">
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-hard-hat"></i>
+            <div class="grid grid-2">
+                <!-- HND Engineering Careers -->
+                <div class="card">
+                    <h3>HND Engineering Careers</h3>
+                    <div class="career-grid" style="grid-template-columns: 1fr;">
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <div class="career-title">Engineering Technician</div>
+                            <div class="career-description">Support engineering projects and operations</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="career-title">Project Engineer</div>
+                            <div class="career-description">Manage engineering projects and teams</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-drafting-compass"></i>
+                            </div>
+                            <div class="career-title">Design Engineer</div>
+                            <div class="career-description">Create and develop engineering designs</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-wrench"></i>
+                            </div>
+                            <div class="career-title">Maintenance Engineer</div>
+                            <div class="career-description">Ensure optimal equipment performance</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-clipboard-check"></i>
+                            </div>
+                            <div class="career-title">Quality Control Engineer</div>
+                            <div class="career-description">Maintain quality standards and processes</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-map-marked-alt"></i>
+                            </div>
+                            <div class="career-title">Site Engineer</div>
+                            <div class="career-description">Oversee on-site engineering activities</div>
+                        </div>
                     </div>
-                    <div class="career-title">Engineering Technician</div>
-                    <div class="career-description">Support engineering projects with technical expertise</div>
                 </div>
                 
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-project-diagram"></i>
+                <!-- HNC Oil & Gas Careers -->
+                <div class="card">
+                    <h3>HNC Oil & Gas Careers</h3>
+                    <div class="career-grid" style="grid-template-columns: 1fr;">
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-oil-well"></i>
+                            </div>
+                            <div class="career-title">Oil & Gas Technician</div>
+                            <div class="career-description">Support drilling and production operations</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-industry"></i>
+                            </div>
+                            <div class="career-title">Facility Operations Assistant</div>
+                            <div class="career-description">Assist in facility operations and monitoring</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-tools"></i>
+                            </div>
+                            <div class="career-title">Maintenance Coordinator</div>
+                            <div class="career-description">Coordinate maintenance activities</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="career-title">Safety Officer</div>
+                            <div class="career-description">Ensure workplace safety compliance</div>
+                        </div>
+                        
+                        <div class="career-item">
+                            <div class="career-icon">
+                                <i class="fas fa-flask"></i>
+                            </div>
+                            <div class="career-title">Process Technician</div>
+                            <div class="career-description">Monitor and control process operations</div>
+                        </div>
                     </div>
-                    <div class="career-title">Project Engineer</div>
-                    <div class="career-description">Manage engineering projects from conception to completion</div>
-                </div>
-                
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <div class="career-title">Design Engineer</div>
-                    <div class="career-description">Create and develop engineering designs and solutions</div>
-                </div>
-                
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <div class="career-title">Maintenance Engineer</div>
-                    <div class="career-description">Ensure optimal performance of engineering systems</div>
-                </div>
-                
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <div class="career-title">Quality Control Engineer</div>
-                    <div class="career-description">Maintain quality standards in engineering processes</div>
-                </div>
-                
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-map-marked-alt"></i>
-                    </div>
-                    <div class="career-title">Site Engineer</div>
-                    <div class="career-description">Oversee on-site engineering operations and construction</div>
-                </div>
-                
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-industry"></i>
-                    </div>
-                    <div class="career-title">Oil & Gas Technician</div>
-                    <div class="career-description">Specialized roles in petroleum and gas industries</div>
-                </div>
-                
-                <div class="career-item">
-                    <div class="career-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="career-title">Safety Officer</div>
-                    <div class="career-description">Ensure workplace safety in engineering environments</div>
                 </div>
             </div>
         </div>
@@ -278,13 +314,13 @@
         <div class="container">
             <div class="section-header">
                 <h2>Entry Requirements</h2>
-                <p>Flexible pathways to accommodate different educational backgrounds and career goals</p>
+                <p>Flexible pathways to accommodate different educational backgrounds</p>
             </div>
             
             <div class="grid grid-2">
                 <!-- HND Requirements -->
                 <div class="requirements-list">
-                    <h3>HND in Engineering Requirements</h3>
+                    <h3>HND Engineering Requirements</h3>
                     <div class="requirement-item">
                         <div class="requirement-icon">
                             <i class="fas fa-calendar-alt"></i>
@@ -299,7 +335,7 @@
                             <i class="fas fa-graduation-cap"></i>
                         </div>
                         <div class="requirement-text">
-                            <strong>Academic:</strong> Grade 12 completion with mathematics and science subjects
+                            <strong>Academic:</strong> Grade 12 with mathematics and science subjects
                         </div>
                     </div>
                     
@@ -357,13 +393,13 @@
                             <i class="fas fa-cogs"></i>
                         </div>
                         <div class="requirement-text">
-                            <strong>Foundation:</strong> Basic understanding of engineering principles
+                            <strong>Background:</strong> Basic understanding of engineering principles
                         </div>
                     </div>
                     
                     <div class="requirement-item">
                         <div class="requirement-icon">
-                            <i class="fas fa-industry"></i>
+                            <i class="fas fa-briefcase"></i>
                         </div>
                         <div class="requirement-text">
                             <strong>Experience:</strong> Relevant work experience preferred
@@ -374,96 +410,60 @@
         </div>
     </section>
 
-    <!-- Learning Approach Section -->
+    <!-- Progression Pathways Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2>Our Engineering Education Approach</h2>
-                <p>Combining theoretical knowledge with practical skills through comprehensive hands-on learning</p>
+                <h2>Progression Pathways</h2>
+                <p>Multiple routes for career advancement and further education</p>
             </div>
             
-            <div class="grid grid-3">
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-book"></i>
+            <div class="pathway-container">
+                <div class="grid grid-2">
+                    <div>
+                        <h3>HND Engineering Progression</h3>
+                        <div class="pathway-steps">
+                            <div class="pathway-step">
+                                <div class="pathway-number">1</div>
+                                <div class="pathway-title">Complete HND Engineering</div>
+                                <div class="pathway-description">240 credits with practical experience</div>
+                            </div>
+                            
+                            <div class="pathway-step">
+                                <div class="pathway-number">2</div>
+                                <div class="pathway-title">University Top-Up</div>
+                                <div class="pathway-description">Direct to final year of engineering degree</div>
+                            </div>
+                            
+                            <div class="pathway-step">
+                                <div class="pathway-number">3</div>
+                                <div class="pathway-title">Professional Career</div>
+                                <div class="pathway-description">Engineering roles with advancement opportunities</div>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Theoretical Foundation</h3>
-                    <p>Solid grounding in engineering principles, mathematics, and scientific concepts essential for professional practice.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Practical Workshops</h3>
-                    <p>Hands-on experience in modern laboratories and workshops with industry-standard equipment and tools.</p>
-                </div>
-                
-                <div class="card">
-                    <div class="card-icon">
-                        <i class="fas fa-project-diagram"></i>
-                    </div>
-                    <div class="career-title">Real Projects</div>
-                    <p>Work on actual engineering projects and case studies that mirror real-world industry challenges.</p>
-                </div>
-            </div>
-            
-            <div class="testimonial-card" style="margin-top: 3rem;">
-                <div class="testimonial-text">
-                    "EAAC's engineering programs combine the best of theoretical learning with practical application. Our students graduate with the confidence and skills to excel in their chosen engineering careers."
-                </div>
-                <div class="testimonial-author">EAAC Engineering Faculty</div>
-                <div class="testimonial-position">Department of Engineering Education</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="section section-alt">
-        <div class="container">
-            <div class="section-header">
-                <h2>Frequently Asked Questions</h2>
-                <p>Common questions about our engineering programs and qualifications</p>
-            </div>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What is the difference between HND and HNC?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>HND (Higher National Diploma) is a Level 5 qualification equivalent to the first two years of a bachelor's degree, typically taking 2 years to complete. HNC (Higher National Certificate) is a Level 4 qualification that provides foundation-level knowledge, typically completed in 1 year.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Can I progress from HNC to HND?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, completing an HNC provides a pathway to HND programs. Students can use their HNC qualification as a foundation to progress to the HND level.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        What facilities are available for engineering students?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>EAAC provides modern engineering laboratories, workshops with industry-standard equipment, computer-aided design (CAD) facilities, and specialized labs for different engineering disciplines.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <button class="faq-question">
-                        Are the qualifications recognized internationally?
-                        <i class="fas fa-chevron-down faq-icon"></i>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Yes, Pearson BTEC qualifications are globally recognized and accepted by employers and universities worldwide, providing excellent opportunities for career advancement and further education.</p>
+                    
+                    <div>
+                        <h3>HNC Oil & Gas Progression</h3>
+                        <div class="pathway-steps">
+                            <div class="pathway-step">
+                                <div class="pathway-number">1</div>
+                                <div class="pathway-title">Complete HNC Oil & Gas</div>
+                                <div class="pathway-description">120 credits foundation qualification</div>
+                            </div>
+                            
+                            <div class="pathway-step">
+                                <div class="pathway-number">2</div>
+                                <div class="pathway-title">Industry Entry</div>
+                                <div class="pathway-description">Entry-level oil & gas positions</div>
+                            </div>
+                            
+                            <div class="pathway-step">
+                                <div class="pathway-number">3</div>
+                                <div class="pathway-title">Further Study</div>
+                                <div class="pathway-description">Progress to HND Engineering programs</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -471,28 +471,28 @@
     </section>
 
     <!-- Application Section -->
-    <section id="apply" class="section">
+    <section id="apply" class="section section-alt">
         <div class="container">
             <div class="section-header">
                 <h2>Apply for Engineering Programs</h2>
-                <p>Start your engineering career with comprehensive education and practical training at EAAC Group</p>
+                <p>Start your engineering career with EAAC Group's industry-focused programs</p>
             </div>
             
             <div class="grid grid-2">
                 <div class="card">
-                    <h3>Why Choose Engineering at EAAC?</h3>
+                    <h3>Why Choose EAAC Engineering?</h3>
                     <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>29+ years of engineering education excellence</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>29+ years of engineering education experience</li>
                         <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Modern laboratories and workshop facilities</li>
-                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Industry-experienced instructors and mentors</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Industry-experienced instructors</li>
                         <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Hands-on practical learning approach</li>
-                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Strong industry connections and job placement</li>
-                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Pathway to engineering degree programs</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Strong industry connections</li>
+                        <li style="margin-bottom: 1rem;"><i class="fas fa-check" style="color: var(--accent-red); margin-right: 0.5rem;"></i>Direct university progression pathways</li>
                     </ul>
                 </div>
                 
                 <div class="card">
-                    <h3>Start Your Engineering Application</h3>
+                    <h3>Engineering Application</h3>
                     <form class="contact-form">
                         <div class="form-group">
                             <label class="form-label">Full Name *</label>
@@ -561,8 +561,8 @@
                 
                 <div class="footer-section">
                     <h3>Contact Info</h3>
-                    <p>Villa No. 132 Tiba St.</p>
-                    <p>Sporting Al-Soghra, Alexandria, Egypt</p>
+                    <p>Villa 41 Dr Ibrahim Refaat St.</p>
+                    <p>Saba Basha, Alexandria, Egypt</p>
                     <p>Phone: +20 35 911 413</p>
                     <p>Email: info@eaacgroup.org</p>
                 </div>
@@ -570,39 +570,12 @@
             
             <div class="footer-bottom">
                 <p>&copy; 2024 EAAC Training and Consulting Group. All rights reserved. | Pearson BTEC Accredited Center</p>
-                <p>Website developed by <strong>ArabIQ Company</strong></p>
+                <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">Website developed by <strong>ArabIQ Company</strong></p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script src="../assets/js/main.js"></script>
-    <script>
-        // FAQ Functionality
-        document.addEventListener('DOMContentLoaded', function() {
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                const answer = item.querySelector('.faq-answer');
-                
-                question.addEventListener('click', function() {
-                    const isActive = item.classList.contains('active');
-                    
-                    // Close all FAQ items
-                    faqItems.forEach(faq => {
-                        faq.classList.remove('active');
-                        faq.querySelector('.faq-answer').classList.remove('active');
-                    });
-                    
-                    // Open clicked item if it wasn't active
-                    if (!isActive) {
-                        item.classList.add('active');
-                        answer.classList.add('active');
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 </html>
