@@ -1,0 +1,42 @@
+{
+  "name": "eaac-pearson-btec-website",
+  "version": "1.0.0",
+  "description": "EAAC Group website showcasing Pearson BTEC qualifications in Engineering, Business & Management, IT & Computing, and Artificial Intelligence",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server . -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/index.html",
+    "build": "echo 'Static website - no build process required'",
+    "validate": "npx html-validate *.html pages/*.html",
+    "optimize": "npx imagemin assets/images/* --out-dir=assets/images/optimized"
+  },
+  "keywords": [
+    "EAAC",
+    "Pearson BTEC",
+    "Higher National Diploma",
+    "Engineering Education",
+    "Business Management",
+    "IT Computing",
+    "Artificial Intelligence",
+    "Egypt",
+    "Alexandria",
+    "Vocational Training"
+  ],
+  "author": "EAAC Training and Consulting Group",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "html-validate": "^8.7.4",
+    "imagemin": "^8.0.1",
+    "imagemin-cli": "^7.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eaac-group/pearson-btec-website.git"
+  },
+  "homepage": "https://eaacgroup.org/pearson",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

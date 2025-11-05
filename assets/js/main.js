@@ -1,0 +1,416 @@
+// EAAC Pearson BTEC Website - Main JavaScript
+
+// DOM Content Loaded Event
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize all functionality
+    initializeNavigation();
+    initializeSmoothScrolling();
+    initializeContactForm();
+    initializeAnimations();
+    loadCourseData();
+});
+
+// ===== NAVIGATION FUNCTIONALITY =====
+function initializeNavigation() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    // Mobile menu toggle
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            
+            // Toggle icon between bars and times
+            const icon = this.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+    }
+
+    // Close mobile menu when clicking on links
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            navMenu.classList.remove('active');
+            const icon = mobileMenuToggle.querySelector('i');
+            icon.className = 'fas fa-bars';
+        });
+    });
+
+    // Active navigation highlighting
+    updateActiveNavigation();
+    window.addEventListener('scroll', updateActiveNavigation);
+}
+
+function updateActiveNavigation() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    let current = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        
+        if (window.scrollY >= (sectionTop - 200)) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+            link.classList.add('active');
+        }
+    });
+}
+
+// ===== SMOOTH SCROLLING =====
+function initializeSmoothScrolling() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            if (targetSection) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                const targetPosition = targetSection.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+}
+
+// ===== CONTACT FORM FUNCTIONALITY =====
+function initializeContactForm() {
+    const contactForm = document.querySelector('.contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const course = this.querySelector('select').value;
+            const message = this.querySelector('textarea').value;
+            
+            // Basic validation
+            if (!name || !email || !message) {
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            if (!isValidEmail(email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            showNotification('Thank you for your inquiry! We will contact you soon.', 'success');
+            this.reset();
+        });
+    }
+}
+
+function isValidEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
+function showNotification(message, type) {
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Style the notification
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 600;
+        z-index: 10000;
+        opacity: 0;
+        transform: translateX(100%);
+        transition: all 0.3s ease;
+        ${type === 'success' ? 'background-color: #28a745;' : 'background-color: #dc3545;'}
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animate in
+    setTimeout(() => {
+        notification.style.opacity = '1';
+        notification.style.transform = 'translateX(0)';
+    }, 100);
+    
+    // Remove after 5 seconds
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 300);
+    }, 5000);
+}
+
+// ===== ANIMATIONS =====
+function initializeAnimations() {
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    const animateElements = document.querySelectorAll('.card, .feature-item, .stat-item');
+    animateElements.forEach(el => {
+        el.classList.add('animate-element');
+        observer.observe(el);
+    });
+    
+    // Add CSS for animations
+    addAnimationStyles();
+}
+
+function addAnimationStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-element {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        
+        .animate-element.animate-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .animate-element:nth-child(2) {
+            transition-delay: 0.1s;
+        }
+        
+        .animate-element:nth-child(3) {
+            transition-delay: 0.2s;
+        }
+        
+        .animate-element:nth-child(4) {
+            transition-delay: 0.3s;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// ===== COURSE DATA LOADING =====
+async function loadCourseData() {
+    try {
+        // Determine correct path based on current location
+        const isInPagesFolder = window.location.pathname.includes('/pages/');
+        const dataPath = isInPagesFolder ? '../data/courses.json' : 'data/courses.json';
+        
+        const response = await fetch(dataPath);
+        const data = await response.json();
+        
+        // Store course data globally
+        window.courseData = data;
+        
+        // Update course counts if elements exist
+        updateCourseCounts(data);
+        
+    } catch (error) {
+        console.log('Course data will be loaded when available');
+    }
+}
+
+function updateCourseCounts(data) {
+    const categories = data.categories;
+    
+    // Update course counts in category cards
+    Object.keys(categories).forEach(categoryKey => {
+        const category = categories[categoryKey];
+        const courseCountElement = document.querySelector(`[data-category="${categoryKey}"] .course-count`);
+        
+        if (courseCountElement && category.courses) {
+            courseCountElement.textContent = `${category.courses.length} Course${category.courses.length !== 1 ? 's' : ''} Available`;
+        }
+    });
+}
+
+// ===== UTILITY FUNCTIONS =====
+
+// Debounce function for performance optimization
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Optimized scroll handler
+const optimizedScrollHandler = debounce(updateActiveNavigation, 10);
+window.addEventListener('scroll', optimizedScrollHandler);
+
+// ===== COURSE CARD INTERACTIONS =====
+function initializeCourseCards() {
+    const courseCards = document.querySelectorAll('.category-card');
+    
+    courseCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-10px)';
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(-5px)';
+        });
+    });
+}
+
+// ===== STATISTICS COUNTER ANIMATION =====
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+        const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
+        const duration = 2000; // 2 seconds
+        const step = target / (duration / 16); // 60fps
+        let current = 0;
+        
+        const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+                counter.textContent = counter.textContent.replace(/\d+/, target);
+                clearInterval(timer);
+            } else {
+                counter.textContent = counter.textContent.replace(/\d+/, Math.floor(current));
+            }
+        }, 16);
+    });
+}
+
+// Initialize counter animation when stats section is visible
+const statsSection = document.querySelector('.about-stats');
+if (statsSection) {
+    const statsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    });
+    
+    statsObserver.observe(statsSection);
+}
+
+// ===== SEARCH FUNCTIONALITY =====
+function initializeSearch() {
+    const searchInput = document.querySelector('.search-input');
+    
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(function() {
+            const searchTerm = this.value.toLowerCase();
+            filterCourses(searchTerm);
+        }, 300));
+    }
+}
+
+function filterCourses(searchTerm) {
+    const courseCards = document.querySelectorAll('.category-card');
+    
+    courseCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const description = card.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// ===== ACCESSIBILITY ENHANCEMENTS =====
+function initializeAccessibility() {
+    // Keyboard navigation for cards
+    const cards = document.querySelectorAll('.card');
+    
+    cards.forEach(card => {
+        card.setAttribute('tabindex', '0');
+        
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                this.click();
+            }
+        });
+    });
+    
+    // Focus management for mobile menu
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileMenuToggle && navMenu) {
+        mobileMenuToggle.addEventListener('click', function() {
+            if (navMenu.classList.contains('active')) {
+                // Focus first menu item when menu opens
+                const firstMenuItem = navMenu.querySelector('a');
+                if (firstMenuItem) {
+                    firstMenuItem.focus();
+                }
+            }
+        });
+    }
+}
+
+// Initialize accessibility features
+initializeAccessibility();
+
+// ===== ERROR HANDLING =====
+window.addEventListener('error', function(e) {
+    console.log('An error occurred:', e.error);
+});
+
+// ===== PERFORMANCE MONITORING =====
+window.addEventListener('load', function() {
+    // Log page load time
+    const loadTime = performance.now();
+    console.log(`Page loaded in ${Math.round(loadTime)}ms`);
+});
+
+// Export functions for use in other scripts
+window.EAACWebsite = {
+    showNotification,
+    loadCourseData,
+    updateCourseCounts,
+    debounce
+};

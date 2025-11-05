@@ -1,0 +1,64 @@
+{
+  "company": {
+    "name": "EAAC Training and Consulting Group",
+    "tagline": "Training Professionals",
+    "established": "1995",
+    "description": "Leading provider of vocational training and consultancy services in Egypt, passionate about equipping individuals with the skills and knowledge they need to thrive in dynamic fields.",
+    "accreditation": "Accredited center delivering Pearson BTEC Higher National Diploma (HND) and Higher National Certificate (HNC) qualifications"
+  },
+  "vision": {
+    "title": "Vision",
+    "content": "To be a leading center of excellence in engineering education, empowering individuals to achieve their full potential and contribute meaningfully to the industry."
+  },
+  "mission": {
+    "title": "Mission", 
+    "content": "To provide students with a comprehensive and practical learning experience, equipping them with the technical knowledge, and hands-on training necessary to excel in their chosen engineering careers."
+  },
+  "contact": {
+    "alexandria": {
+      "branch": "Alexandria Branch",
+      "address": "Villa No. 132 Tiba St., Sporting Al-Soghra, Alexandria, Egypt",
+      "phones": ["+2035911413", "+2035911312"],
+      "email": "info@eaacgroup.org",
+      "website": "https://eaacgroup.org"
+    }
+  },
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/EAACGROUP/",
+    "reviews": "https://www.facebook.com/EAACGROUP/reviews"
+  },
+  "services": [
+    "Pearson BTEC Higher National Diplomas",
+    "Higher National Certificates", 
+    "Professional Training Programs",
+    "Consultancy Services",
+    "Corporate Training Solutions"
+  ],
+  "facilities": [
+    "Modern Laboratories",
+    "Workshop Facilities", 
+    "Computer Labs",
+    "Library Resources",
+    "Virtual Learning Environment"
+  ],
+  "keyFeatures": [
+    {
+      "title": "1500+ Courses",
+      "description": "Enjoy a variety of fresh topics"
+    },
+    {
+      "title": "Expert Instructors", 
+      "description": "Find the right instructor"
+    },
+    {
+      "title": "Lifetime Access",
+      "description": "Learn on your schedule"
+    }
+  ],
+  "statistics": {
+    "coursesOffered": "1500+",
+    "yearsOfExperience": "29+",
+    "studentsGraduated": "10000+",
+    "industryPartners": "200+"
+  }
+}

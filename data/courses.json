@@ -1,0 +1,258 @@
+{
+  "categories": {
+    "business-management": {
+      "title": "Business & Management",
+      "description": "Develop essential business skills and leadership capabilities with our comprehensive Pearson BTEC qualifications.",
+      "icon": "business-icon",
+      "courses": [
+        {
+          "id": "hnd-business",
+          "title": "Pearson BTEC Level 5 Higher National Diploma in Business",
+          "level": "Level 5",
+          "duration": "18-24 months",
+          "credits": 240,
+          "specializations": [
+            "Accounting",
+            "Finance",
+            "Management", 
+            "Human Resource Management (HRM)",
+            "Marketing",
+            "Law"
+          ],
+          "modules": [
+            "Contemporary Business Environment",
+            "Marketing Processes and Planning",
+            "Management of Human Resources",
+            "Leadership and Management",
+            "Accounting Principles",
+            "Managing a Successful Business Project",
+            "Business Law",
+            "Entrepreneurial Ventures",
+            "Research Project",
+            "Organisational Behaviour Management",
+            "Business Strategy",
+            "Developing Individuals, Teams and Organisations",
+            "International Marketing",
+            "Brand Management",
+            "Planning for Growth"
+          ],
+          "careerOpportunities": [
+            "Business Management roles",
+            "Human Resource Management",
+            "Marketing positions",
+            "Sales roles",
+            "Entrepreneurship",
+            "Accounting and Finance positions"
+          ],
+          "entryRequirements": [
+            "Age 17 and above",
+            "CBSE/ISC/NIOS/All-State boards Grade 12",
+            "GCE Advanced level (2+ subjects) with 5+ GCSEs at grade C and above",
+            "Pearson BTEC Level 3/International Diploma",
+            "Other equivalent international qualifications",
+            "Relevant work experience"
+          ],
+          "assessment": "Assignment-based (No exams)",
+          "grading": "Pass/Merit/Distinction",
+          "progression": "Direct entry to third year of bachelor's degree at 200+ universities worldwide"
+        }
+      ]
+    },
+    "it-computing": {
+      "title": "IT & Computing",
+      "description": "Master cutting-edge technology skills with industry-focused computing qualifications designed for the digital age.",
+      "icon": "computing-icon",
+      "courses": [
+        {
+          "id": "hnd-computing",
+          "title": "Pearson BTEC Level 5 Higher National Diploma in Computing",
+          "level": "Level 5",
+          "duration": "18-24 months",
+          "credits": 240,
+          "specializations": [
+            "Network Engineering",
+            "Software Engineering",
+            "Cyber Security",
+            "Application Development",
+            "Data Analytics"
+          ],
+          "modules": [
+            "Programming",
+            "Networking",
+            "Professional Practice",
+            "Database Design & Development",
+            "Security",
+            "Planning a Computing Project",
+            "Software Development Lifecycles",
+            "Website Design and Development",
+            "Computing Research Project",
+            "Business Process Support",
+            "Emerging Technologies",
+            "System Design & Analysis",
+            "Data Structures and Algorithms",
+            "Internet of Things",
+            "Operating System"
+          ],
+          "careerOpportunities": [
+            "Software Developer",
+            "Network Engineer",
+            "Data Analyst",
+            "Business Analyst",
+            "Games Developer",
+            "IT Project Manager"
+          ],
+          "entryRequirements": [
+            "Age 17 and above",
+            "CBSE/ISC/NIOS/All-State boards Grade 12",
+            "GCE Advanced level (3+ subjects) with 5+ GCSEs at grade C and above",
+            "Pearson BTEC Level 3 Qualification in Computing",
+            "Other equivalent international qualifications",
+            "Relevant work experience"
+          ],
+          "assessment": "Assignment-based (No exams)",
+          "grading": "Pass/Merit/Distinction",
+          "progression": "Direct progression to final year of computing degree programs"
+        }
+      ]
+    },
+    "artificial-intelligence": {
+      "title": "Artificial Intelligence",
+      "description": "Pioneer the future with comprehensive AI and digital technologies education meeting global industry demands.",
+      "icon": "ai-icon",
+      "courses": [
+        {
+          "id": "hnd-ai",
+          "title": "Pearson BTEC Level 5 HND in Digital Technologies (Artificial Intelligence Solutions & Applications)",
+          "level": "Level 5",
+          "duration": "18-24 months",
+          "credits": 240,
+          "structure": "15 mandatory units (8 Level 4 + 7 Level 5)",
+          "yearOneModules": [
+            "Professional Practice in the Digital Economy",
+            "Innovation Digital Transformation",
+            "Cyber Security",
+            "Programming",
+            "Big Data Visualisation",
+            "Cloud Fundamentals",
+            "Software Development Lifecycles",
+            "Fundamentals of Artificial Intelligence (AI) Intelligent Systems"
+          ],
+          "yearTwoModules": [
+            "Business Intelligence",
+            "Internet of Things",
+            "Emerging Technologies",
+            "Risk Analysis and Systems Testing",
+            "Application Development",
+            "Application Program Interfaces",
+            "Digital Sustainability",
+            "Pitching and Negotiating Skills"
+          ],
+          "coreTechnologies": [
+            "Machine Learning",
+            "Data Analytics",
+            "Cloud Computing",
+            "Cybersecurity",
+            "Natural Language Processing",
+            "Robotic Process Automation",
+            "Predictive Analytics"
+          ],
+          "careerOpportunities": [
+            "AI Specialist",
+            "Data Analyst",
+            "Junior Software Engineer",
+            "AI Application Developer",
+            "Digital Technology Consultant"
+          ],
+          "entryRequirements": [
+            "Age 17 and above",
+            "CBSE/ISC/NIOS/All-State boards Grade 12",
+            "GCE Advanced level (3+ subjects) with 5+ GCSEs at grade C and above",
+            "Pearson BTEC Level 3 in IT",
+            "Other equivalent international qualifications",
+            "Relevant work experience"
+          ],
+          "assessment": "Assignment-based (No exams)",
+          "grading": "Pass/Merit/Distinction",
+          "progression": "Top-up to Honours Degree at 70+ countries, partner universities include University of Stirling, Curtin University, Middlesex University"
+        }
+      ]
+    },
+    "engineering": {
+      "title": "Engineering",
+      "description": "Build your engineering career with globally recognized qualifications combining theoretical knowledge with practical skills.",
+      "icon": "engineering-icon",
+      "courses": [
+        {
+          "id": "hnd-engineering",
+          "title": "Pearson BTEC Level 5 Higher National Diploma in Engineering",
+          "level": "Level 5",
+          "duration": "24 months",
+          "credits": 240,
+          "specializations": [
+            "Mechanical Engineering",
+            "Electrical Engineering",
+            "Civil Engineering",
+            "Instrumentation & Control Engineering"
+          ],
+          "description": "Comprehensive engineering program combining theoretical knowledge with practical skills through workshops and project work, preparing students for various technician roles in their chosen field.",
+          "careerOpportunities": [
+            "Engineering Technician",
+            "Project Engineer",
+            "Design Engineer",
+            "Maintenance Engineer",
+            "Quality Control Engineer",
+            "Site Engineer"
+          ],
+          "entryRequirements": [
+            "Age 18 and above",
+            "Grade 12 completion with mathematics and science subjects",
+            "GCE Advanced level with relevant subjects",
+            "Pearson BTEC Level 3 in Engineering",
+            "Other equivalent international qualifications",
+            "Relevant work experience"
+          ],
+          "assessment": "Assignment-based with practical workshops",
+          "grading": "Pass/Merit/Distinction",
+          "progression": "Direct progression to final year of engineering degree programs"
+        },
+        {
+          "id": "hnc-oil-gas",
+          "title": "Higher National Certificate in Oil & Gas Facility Management",
+          "level": "Level 4",
+          "duration": "12 months",
+          "credits": 120,
+          "description": "Essential knowledge and skills for entry-level positions in oil and gas facility operations and maintenance.",
+          "careerOpportunities": [
+            "Oil & Gas Technician",
+            "Facility Operations Assistant",
+            "Maintenance Coordinator",
+            "Safety Officer",
+            "Process Technician"
+          ],
+          "entryRequirements": [
+            "Age 18 and above",
+            "Grade 12 completion",
+            "Basic understanding of engineering principles",
+            "Relevant work experience preferred"
+          ],
+          "assessment": "Assignment-based with industry case studies",
+          "grading": "Pass/Merit/Distinction",
+          "progression": "Pathway to HND Engineering or direct employment"
+        }
+      ]
+    }
+  },
+  "commonFeatures": {
+    "accreditation": "Pearson BTEC qualifications - Globally recognized",
+    "approval": "KHDA (Knowledge and Human Development Authority) approved",
+    "equivalence": "Equivalent to first two years of bachelor's degree",
+    "assessmentMethod": "Assignment-based assessment (no traditional exams)",
+    "studyModes": ["Classroom", "Blended learning"],
+    "supportServices": [
+      "Expert mentoring",
+      "Industry-relevant curriculum", 
+      "Scholarship opportunities",
+      "Career guidance and progression support"
+    ]
+  }
+}
