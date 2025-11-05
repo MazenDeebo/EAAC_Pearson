@@ -5,10 +5,117 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
     initializeNavigation();
     initializeSmoothScrolling();
-    initializeContactForm();
     initializeAnimations();
     loadCourseData();
+    initializeSpecialEffects();
+    
+    // Initialize contact form if it exists
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        initializeContactForm();
+    }
 });
+
+// ===== SPECIAL EFFECTS =====
+function initializeSpecialEffects() {
+    // Add sparkle effect on logo hover
+    const logos = document.querySelectorAll('.logo-img, .pearson-logo-img');
+    logos.forEach(logo => {
+        logo.addEventListener('mouseenter', createSparkleEffect);
+    });
+    
+    // Add ripple effect on button clicks
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', createRippleEffect);
+    });
+    
+    // Add magnetic effect to cards
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mousemove', magneticEffect);
+        card.addEventListener('mouseleave', resetMagneticEffect);
+    });
+    
+    // Add typing effect to hero text
+    initializeTypingEffect();
+}
+
+function createSparkleEffect(e) {
+    const sparkles = 5;
+    for (let i = 0; i < sparkles; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.cssText = `
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: radial-gradient(circle, #e31e24, #c41e24);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 1000;
+            animation: sparkleAnimation 1s ease-out forwards;
+        `;
+        
+        const rect = e.target.getBoundingClientRect();
+        sparkle.style.left = (rect.left + Math.random() * rect.width) + 'px';
+        sparkle.style.top = (rect.top + Math.random() * rect.height) + 'px';
+        
+        document.body.appendChild(sparkle);
+        
+        setTimeout(() => {
+            if (sparkle.parentNode) {
+                sparkle.parentNode.removeChild(sparkle);
+            }
+        }, 1000);
+    }
+}
+
+function createRippleEffect(e) {
+    const button = e.currentTarget;
+    const ripple = document.createElement('span');
+    const rect = button.getBoundingClientRect();
+    const size = Math.max(rect.width, rect.height);
+    const x = e.clientX - rect.left - size / 2;
+    const y = e.clientY - rect.top - size / 2;
+    
+    ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: radial-gradient(circle, rgba(255,255,255,0.6) 0%, transparent 70%);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: rippleAnimation 0.6s ease-out;
+        pointer-events: none;
+    `;
+    
+    button.style.position = 'relative';
+    button.style.overflow = 'hidden';
+    button.appendChild(ripple);
+    
+    setTimeout(() => {
+        if (ripple.parentNode) {
+            ripple.parentNode.removeChild(ripple);
+        }
+    }, 600);
+}
+
+function magneticEffect(e) {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    
+    card.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.02)`;
+}
+
+function resetMagneticEffect(e) {
+    const card = e.currentTarget;
+    card.style.transform = 'translate(0px, 0px) scale(1)';
+}
 
 // ===== NAVIGATION FUNCTIONALITY =====
 function initializeNavigation() {
@@ -170,31 +277,46 @@ function showNotification(message, type) {
     }, 5000);
 }
 
-// ===== ANIMATIONS =====
+// ===== ULTRA-MODERN ANIMATIONS =====
 function initializeAnimations() {
-    // Intersection Observer for scroll animations
+    // Enhanced Intersection Observer for scroll animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
     
     const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
+        entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
+                // Staggered animation delays
+                setTimeout(() => {
+                    entry.target.classList.add('animate-in');
+                    
+                    // Add special effects based on element type
+                    if (entry.target.classList.contains('card')) {
+                        entry.target.style.animationDelay = `${index * 0.1}s`;
+                    }
+                }, index * 100);
             }
         });
     }, observerOptions);
     
-    // Observe elements for animation
-    const animateElements = document.querySelectorAll('.card, .feature-item, .stat-item');
-    animateElements.forEach(el => {
+    // Observe elements for animation with enhanced selectors
+    const animateElements = document.querySelectorAll('.card, .feature-item, .stat-item, .section-header, .hero-content');
+    animateElements.forEach((el, index) => {
         el.classList.add('animate-element');
+        el.style.setProperty('--animation-delay', `${index * 0.1}s`);
         observer.observe(el);
     });
     
+    // Add parallax effect to hero section
+    initializeParallax();
+    
     // Add CSS for animations
     addAnimationStyles();
+    
+    // Initialize floating elements
+    initializeFloatingElements();
 }
 
 function addAnimationStyles() {
@@ -202,28 +324,81 @@ function addAnimationStyles() {
     style.textContent = `
         .animate-element {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s ease;
+            transform: translateY(50px) scale(0.9);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: var(--animation-delay, 0s);
         }
         
         .animate-element.animate-in {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
         }
         
-        .animate-element:nth-child(2) {
-            transition-delay: 0.1s;
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
         }
         
-        .animate-element:nth-child(3) {
-            transition-delay: 0.2s;
+        .parallax-element {
+            transform: translateZ(0);
+            will-change: transform;
         }
         
-        .animate-element:nth-child(4) {
-            transition-delay: 0.3s;
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8) rotate(-5deg);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+        
+        .card.animate-in {
+            animation: fadeInScale 0.8s ease-out forwards;
         }
     `;
     document.head.appendChild(style);
+}
+
+// ===== PARALLAX EFFECTS =====
+function initializeParallax() {
+    const parallaxElements = document.querySelectorAll('.hero, .section');
+    
+    window.addEventListener('scroll', debounce(() => {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        parallaxElements.forEach(element => {
+            if (element.classList.contains('hero')) {
+                element.style.transform = `translateY(${rate}px)`;
+            }
+        });
+    }, 10));
+}
+
+// ===== FLOATING ELEMENTS =====
+function initializeFloatingElements() {
+    const floatingElements = document.querySelectorAll('.card-icon, .btn-primary');
+    
+    floatingElements.forEach((element, index) => {
+        element.classList.add('floating-element');
+        element.style.animationDelay = `${index * 0.5}s`;
+    });
+    
+    // Add mouse movement parallax effect
+    document.addEventListener('mousemove', (e) => {
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
+        
+        floatingElements.forEach((element, index) => {
+            const speed = (index + 1) * 0.5;
+            const x = (mouseX - 0.5) * speed;
+            const y = (mouseY - 0.5) * speed;
+            
+            element.style.transform += ` translate(${x}px, ${y}px)`;
+        });
+    });
 }
 
 // ===== COURSE DATA LOADING =====
