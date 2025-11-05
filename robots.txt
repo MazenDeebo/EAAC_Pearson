@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mazendeebo.github.io/EAAC_Pearson/sitemap.xml
+
+# Disallow certain files
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /.github/
+Disallow: /README.md
+Disallow: /DEPLOYMENT.md
+Disallow: /package.json
+
+# Allow important directories
+Allow: /assets/images/
+Allow: /pages/
+
+# Crawl delay (optional)
+Crawl-delay: 1
