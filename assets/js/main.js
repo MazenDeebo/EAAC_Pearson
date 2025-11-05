@@ -141,9 +141,15 @@ function initializeNavigation() {
     // Close mobile menu when clicking on links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            navMenu.classList.remove('active');
-            const icon = mobileMenuToggle.querySelector('i');
-            icon.className = 'fas fa-bars';
+            if (navMenu) {
+                navMenu.classList.remove('active');
+            }
+            if (mobileMenuToggle) {
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    icon.className = 'fas fa-bars';
+                }
+            }
         });
     });
 
@@ -181,19 +187,23 @@ function initializeSmoothScrolling() {
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
+            // Only prevent default for internal anchors
+            if (targetId && targetId.startsWith('#') && targetId.length > 1) {
+                const targetSection = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                if (targetSection) {
+                    e.preventDefault();
+                    const header = document.querySelector('.header');
+                    const headerHeight = header ? header.offsetHeight : 80;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
     });
