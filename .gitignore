@@ -96,3 +96,6 @@ Thumbs.db
 build/
 dist/
 assets/images/optimized/
+
+# Local Netlify folder
+.netlify
