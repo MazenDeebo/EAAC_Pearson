@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://yourusername.github.io/eaac-pearson-btec-website/sitemap.xml
+
+# Disallow certain files
+Disallow: /assets/js/
+Disallow: /assets/css/
+Disallow: /.github/
+Disallow: /README.md
+Disallow: /GITHUB_PAGES_SETUP.md
+Disallow: /_config.yml
+
+# Allow important directories
+Allow: /assets/images/
+Allow: /pages/
+
+# Crawl delay (optional)
+Crawl-delay: 1

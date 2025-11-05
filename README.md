@@ -1,7 +1,16 @@
 # EAAC Pearson BTEC Website
 
+🌐 **Live Website**: [Visit EAAC Pearson BTEC Website](https://yourusername.github.io/eaac-pearson-btec-website/)
+
 ## Project Overview
 A modern, responsive website for EAAC Group showcasing Pearson BTEC qualifications in Engineering, Business & Management, IT & Computing, and Artificial Intelligence.
+
+### ✨ Features
+- 🎓 **Virtual Tours**: Interactive 3D Matterport tours of all branches
+- 📱 **Responsive Design**: Perfect on all devices
+- 🎨 **Modern UI**: Ultra-modern animations and effects
+- 🗺️ **Interactive Maps**: Google Maps integration
+- 🔒 **GitHub Pages Ready**: Automated deployment
 
 ## Project Structure
 

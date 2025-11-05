@@ -1,0 +1,47 @@
+# GitHub Pages Configuration
+title: "EAAC Group - Pearson BTEC Qualifications"
+description: "Leading provider of globally recognized Pearson BTEC qualifications in Engineering, Business, IT, and AI since 1995."
+url: "https://yourusername.github.io"
+baseurl: "/eaac-pearson-btec-website"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+
+# Exclude files from processing
+exclude:
+  - README.md
+  - GITHUB_PAGES_SETUP.md
+  - .gitignore
+  - node_modules/
+  - package.json
+  - package-lock.json
+
+# Include files
+include:
+  - _pages
+  - assets
+
+# SEO settings
+author: "ArabIQ Company"
+twitter:
+  username: eaacgroup
+facebook:
+  app_id: 
+  publisher: 
+  admins: 
+
+# Social media
+social:
+  name: EAAC Group
+  links:
+    - https://facebook.com/eaacgroup
+    - https://linkedin.com/company/eaacgroup
+
+# Analytics (optional - add your Google Analytics ID)
+google_analytics: 
+
+# Site verification (optional)
+google_site_verification: 
+bing_site_verification:
