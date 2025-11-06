@@ -144,6 +144,8 @@ a:hover {
 .logo-left {
     justify-content: flex-start;
     grid-column: 1;
+    padding-left: 0;
+    margin-left: 0;
 }
 
 .logo-right {
@@ -176,11 +178,11 @@ a:hover {
 
 .nav-container {
     display: grid;
-    grid-template-columns: 180px 1fr 180px;
+    grid-template-columns: 200px 1fr 180px;
     align-items: center;
     position: relative;
     height: 80px;
-    padding: 0 2rem;
+    padding: 0 1rem 0 0;
     max-width: 1600px;
     margin: 0 auto;
     width: 100%;
@@ -1521,6 +1523,39 @@ margin-bottom: 0.5rem;
     .nav-menu a.active {
         background: var(--accent-red);
         color: var(--white);
+    }
+    
+    /* Mobile Dropdown Styles */
+    .dropdown-menu {
+        position: static !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+        padding: 0 !important;
+        margin-top: 0.5rem !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: none !important;
+        display: none !important;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block !important;
+    }
+    
+    .dropdown-menu a {
+        color: rgba(255, 255, 255, 0.8) !important;
+        padding: 0.8rem 1.5rem !important;
+        border-left: 3px solid transparent !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        background: none !important;
+    }
+    
+    .dropdown-menu a:hover,
+    .dropdown-menu a.active {
+        background: rgba(227, 30, 36, 0.2) !important;
+        border-left-color: var(--accent-red) !important;
+        color: var(--white) !important;
     }
     
     .mobile-menu-toggle {

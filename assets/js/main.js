@@ -48,15 +48,22 @@ function initializeNavigation() {
     // Dropdown functionality for mobile
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
-        const menu = dropdown.querySelector('.dropdown-menu');
         
-        if (toggle && menu) {
+        if (toggle) {
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
                 
-                // On mobile, toggle dropdown visibility
+                // Check if we're in mobile view
                 if (window.innerWidth <= 768) {
-                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+                    // Close other dropdowns
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
                 }
             });
         }
@@ -66,10 +73,7 @@ function initializeNavigation() {
     document.addEventListener('click', function(e) {
         dropdowns.forEach(dropdown => {
             if (!dropdown.contains(e.target)) {
-                const menu = dropdown.querySelector('.dropdown-menu');
-                if (menu) {
-                    menu.style.display = 'none';
-                }
+                dropdown.classList.remove('active');
             }
         });
     });
