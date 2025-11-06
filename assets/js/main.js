@@ -45,25 +45,42 @@ function initializeNavigation() {
         });
     });
 
-    // Simple dropdown functionality
+    // Mobile dropdown functionality with force approach
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
         
         if (toggle && menu) {
-            // Click handler for all devices
-            toggle.addEventListener('click', function(e) {
+            // Remove any existing event listeners by cloning the element
+            const newToggle = toggle.cloneNode(true);
+            toggle.parentNode.replaceChild(newToggle, toggle);
+            
+            // Add new event listener
+            newToggle.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('Mobile dropdown clicked!'); // Debug log
                 
                 // Close other dropdowns first
                 dropdowns.forEach(otherDropdown => {
                     if (otherDropdown !== dropdown) {
                         otherDropdown.classList.remove('active');
+                        otherDropdown.classList.remove('mobile-open');
                     }
                 });
                 
-                // Toggle current dropdown
+                // Toggle current dropdown with both classes
                 dropdown.classList.toggle('active');
+                dropdown.classList.toggle('mobile-open');
+                
+                console.log('Dropdown classes:', dropdown.className); // Debug log
+            });
+            
+            // Also handle touch events for mobile
+            newToggle.addEventListener('touchstart', function(e) {
+                e.preventDefault();
+                this.click();
             });
         }
     });
@@ -73,6 +90,7 @@ function initializeNavigation() {
         dropdowns.forEach(dropdown => {
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('active');
+                dropdown.classList.remove('mobile-open');
             }
         });
     });
@@ -82,6 +100,7 @@ function initializeNavigation() {
         // Reset dropdown states on resize
         dropdowns.forEach(dropdown => {
             dropdown.classList.remove('active');
+            dropdown.classList.remove('mobile-open');
         });
     });
 
