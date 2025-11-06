@@ -63,63 +63,77 @@ function initializeNavigation() {
         });
     });
 
-    // Simple accordion functionality for mobile course menu
-    if (navMenu) {
-        navMenu.addEventListener('click', function(e) {
-            const clickedElement = e.target;
-            
-            // Check if clicked element is a dropdown toggle button
-            if (clickedElement.classList.contains('dropdown-toggle')) {
-                e.preventDefault();
-                e.stopPropagation();
+    // Mobile-only solution: Replace dropdown with individual menu items
+    function handleMobileNavigation() {
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Find the dropdown
+            const dropdown = navMenu.querySelector('.dropdown');
+            if (dropdown) {
+                const dropdownMenu = dropdown.querySelector('.dropdown-menu');
+                const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
                 
-                console.log('Course menu button clicked!');
-                
-                const dropdown = clickedElement.closest('.dropdown');
-                
-                if (dropdown) {
-                    // Close other dropdowns first
-                    const allDropdowns = navMenu.querySelectorAll('.dropdown');
-                    allDropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('mobile-expanded');
-                        }
+                if (dropdownMenu && dropdownToggle) {
+                    // Hide the original dropdown toggle
+                    dropdownToggle.style.display = 'none';
+                    
+                    // Get all course links from dropdown menu
+                    const courseLinks = dropdownMenu.querySelectorAll('a');
+                    
+                    // Create individual menu items for each course
+                    courseLinks.forEach(link => {
+                        const newMenuItem = document.createElement('li');
+                        const newLink = document.createElement('a');
+                        
+                        newLink.href = link.href;
+                        newLink.textContent = link.textContent;
+                        newLink.className = 'mobile-course-link';
+                        
+                        newMenuItem.appendChild(newLink);
+                        
+                        // Insert after the dropdown
+                        dropdown.parentNode.insertBefore(newMenuItem, dropdown.nextSibling);
                     });
                     
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('mobile-expanded');
-                    
-                    console.log('Course menu toggled, expanded:', dropdown.classList.contains('mobile-expanded'));
-                    
-                    // Check if course links are visible
-                    const courseLinks = dropdown.querySelector('.course-links');
-                    if (courseLinks) {
-                        const isVisible = window.getComputedStyle(courseLinks).display !== 'none';
-                        console.log('Course links visible:', isVisible);
-                    }
+                    console.log('Mobile navigation: Replaced dropdown with individual menu items');
                 }
             }
-        });
-    }
-
-    // Close course menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (navMenu && !navMenu.contains(e.target)) {
-            const allDropdowns = navMenu.querySelectorAll('.dropdown');
-            allDropdowns.forEach(dropdown => {
-                dropdown.classList.remove('mobile-expanded');
-            });
+        } else {
+            // Desktop: Restore original dropdown functionality
+            restoreDesktopDropdown();
         }
-    });
+    }
+    
+    function restoreDesktopDropdown() {
+        // Remove mobile course links
+        const mobileLinks = navMenu.querySelectorAll('.mobile-course-link');
+        mobileLinks.forEach(link => {
+            link.parentNode.remove();
+        });
+        
+        // Show dropdown toggle
+        const dropdownToggle = navMenu.querySelector('.dropdown-toggle');
+        if (dropdownToggle) {
+            dropdownToggle.style.display = '';
+        }
+    }
+    
+    // Initialize mobile navigation
+    handleMobileNavigation();
+    
+    // Handle window resize
+    window.addEventListener('resize', handleMobileNavigation);
 
-    // Handle window resize for course menu behavior
-    window.addEventListener('resize', function() {
-        // Reset course menu states on resize
-        if (navMenu) {
-            const allDropdowns = navMenu.querySelectorAll('.dropdown');
-            allDropdowns.forEach(dropdown => {
-                dropdown.classList.remove('mobile-expanded');
-            });
+    // Handle mobile menu link clicks
+    navMenu.addEventListener('click', function(e) {
+        if (e.target.classList.contains('mobile-course-link')) {
+            // Close mobile menu when course link is clicked
+            navMenu.classList.remove('active');
+            if (mobileMenuToggle) {
+                const icon = mobileMenuToggle.querySelector('i');
+                icon.className = 'fas fa-bars';
+            }
         }
     });
 
