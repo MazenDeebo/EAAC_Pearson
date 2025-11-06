@@ -45,27 +45,38 @@ function initializeNavigation() {
         });
     });
 
-    // Dropdown functionality for mobile
+    // Dropdown functionality for both desktop and mobile
     dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
         
-        if (toggle) {
+        if (toggle && menu) {
+            // Click handler for both desktop and mobile
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
+                e.stopPropagation();
                 
-                // Check if we're in mobile view
-                if (window.innerWidth <= 768) {
-                    // Close other dropdowns
-                    dropdowns.forEach(otherDropdown => {
-                        if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current dropdown
-                    dropdown.classList.toggle('active');
-                }
+                // Close other dropdowns first
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('active');
             });
+            
+            // For desktop hover behavior
+            if (window.innerWidth > 768) {
+                dropdown.addEventListener('mouseenter', function() {
+                    dropdown.classList.add('active');
+                });
+                
+                dropdown.addEventListener('mouseleave', function() {
+                    dropdown.classList.remove('active');
+                });
+            }
         }
     });
 
@@ -75,6 +86,14 @@ function initializeNavigation() {
             if (!dropdown.contains(e.target)) {
                 dropdown.classList.remove('active');
             }
+        });
+    });
+
+    // Handle window resize for dropdown behavior
+    window.addEventListener('resize', function() {
+        // Reset dropdown states on resize
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove('active');
         });
     });
 
