@@ -1555,49 +1555,65 @@ margin-bottom: 0.5rem;
         color: var(--white);
     }
     
-    /* Mobile Dropdown Styles */
+    /* Mobile Dropdown Styles - Simplified Approach */
     .dropdown {
         position: relative;
+        width: 100%;
     }
     
     .dropdown-toggle {
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: 0.5rem;
+        justify-content: space-between;
+        width: 100%;
+        padding: 1rem 1.5rem;
+        color: var(--white);
+        background: none;
+        border: none;
+        text-align: left;
+        font-size: 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
     }
     
-    .dropdown-toggle::after {
-        content: '▼';
-        font-size: 0.8rem;
+    .dropdown-toggle:hover {
+        background: var(--accent-red);
+    }
+    
+    .dropdown-toggle i {
         transition: transform 0.3s ease;
+        font-size: 0.9rem;
     }
     
-    .dropdown.active .dropdown-toggle::after {
+    .dropdown.active .dropdown-toggle i {
         transform: rotate(180deg);
     }
     
     .dropdown-menu {
-        position: static !important;
-        background: rgba(255, 255, 255, 0.1) !important;
-        box-shadow: none !important;
-        border-radius: 8px !important;
-        padding: 0.5rem 0 !important;
-        margin-top: 0.5rem !important;
-        opacity: 0 !important;
-        visibility: hidden !important;
-        transform: translateY(-10px) !important;
-        display: block !important;
-        transition: all 0.3s ease !important;
-        max-height: 0 !important;
-        overflow: hidden !important;
+        display: none;
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        margin: 0.5rem 0;
+        padding: 0;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
     
     .dropdown.active .dropdown-menu {
-        opacity: 1 !important;
-        visibility: visible !important;
-        transform: translateY(0) !important;
-        max-height: 300px !important;
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            max-height: 0;
+        }
+        to {
+            opacity: 1;
+            max-height: 200px;
+        }
     }
     
     .dropdown-menu a {

@@ -2,6 +2,7 @@
 
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing...');
     // Initialize all functionality
     initializeNavigation();
     initializeSmoothScrolling();
@@ -14,10 +15,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== NAVIGATION FUNCTIONALITY =====
 function initializeNavigation() {
+    console.log('Initializing navigation...');
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-menu a');
     const dropdowns = document.querySelectorAll('.dropdown');
+    
+    console.log('Found elements:', {
+        mobileMenuToggle: !!mobileMenuToggle,
+        navMenu: !!navMenu,
+        navLinks: navLinks.length,
+        dropdowns: dropdowns.length
+    });
 
     // Mobile menu toggle
     if (mobileMenuToggle) {
@@ -45,16 +54,22 @@ function initializeNavigation() {
         });
     });
 
-    // Dropdown functionality for both desktop and mobile
-    dropdowns.forEach(dropdown => {
+    // Simple dropdown functionality
+    dropdowns.forEach((dropdown, index) => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
         
+        console.log(`Dropdown ${index}:`, {
+            toggle: !!toggle,
+            menu: !!menu,
+            toggleText: toggle ? toggle.textContent.trim() : 'N/A'
+        });
+        
         if (toggle && menu) {
-            // Click handler for both desktop and mobile
+            // Click handler for all devices
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
-                e.stopPropagation();
+                console.log(`Dropdown ${index} clicked!`);
                 
                 // Close other dropdowns first
                 dropdowns.forEach(otherDropdown => {
@@ -65,18 +80,11 @@ function initializeNavigation() {
                 
                 // Toggle current dropdown
                 dropdown.classList.toggle('active');
-            });
-            
-            // For desktop hover behavior
-            if (window.innerWidth > 768) {
-                dropdown.addEventListener('mouseenter', function() {
-                    dropdown.classList.add('active');
-                });
                 
-                dropdown.addEventListener('mouseleave', function() {
-                    dropdown.classList.remove('active');
-                });
-            }
+                // Debug log for mobile testing
+                console.log('Dropdown active state:', dropdown.classList.contains('active'));
+                console.log('Menu display:', window.getComputedStyle(menu).display);
+            });
         }
     });
 
