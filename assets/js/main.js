@@ -96,10 +96,25 @@ function initializeNavigation() {
                     
                     console.log('Dropdown toggled, classes:', dropdown.className);
                     
-                    // Check if menu is now visible
+                    // Check if menu is now visible and force it to be visible
                     const menu = dropdown.querySelector('.dropdown-menu');
                     if (menu) {
                         console.log('Menu display style:', window.getComputedStyle(menu).display);
+                        
+                        // Force the menu to be visible with inline styles
+                        if (dropdown.classList.contains('active')) {
+                            menu.style.display = 'block';
+                            menu.style.visibility = 'visible';
+                            menu.style.opacity = '1';
+                            menu.style.background = '#ff0000';
+                            menu.style.border = '2px solid #00ff00';
+                            menu.style.padding = '10px';
+                            menu.style.margin = '10px 0';
+                            console.log('Forced menu to be visible with inline styles');
+                        } else {
+                            menu.style.display = 'none';
+                            console.log('Hidden menu');
+                        }
                     }
                 }
             }

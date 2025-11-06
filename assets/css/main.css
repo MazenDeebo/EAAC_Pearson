@@ -1609,6 +1609,13 @@ margin-bottom: 0.5rem;
     .nav-menu .dropdown.mobile-open .dropdown-menu,
     .nav-menu .dropdown.active .dropdown-menu {
         display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        height: auto !important;
+        max-height: 300px !important;
+        transform: none !important;
+        background: #ff0000 !important; /* Bright red for testing */
+        border: 2px solid #00ff00 !important; /* Green border for visibility */
     }
     
     .nav-menu .dropdown-menu li {
