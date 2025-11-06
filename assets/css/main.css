@@ -1872,6 +1872,7 @@ margin-bottom: 0.5rem;
     input, select, textarea {
         -webkit-appearance: none;
         -moz-appearance: none;
+        -ms-appearance: none;
         appearance: none;
         border-radius: 8px;
         font-size: 16px; /* Prevents zoom on iOS */
@@ -1885,6 +1886,9 @@ margin-bottom: 0.5rem;
     textarea,
     select {
         -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        appearance: none;
         -webkit-border-radius: 8px;
         border-radius: 8px;
         -webkit-box-shadow: none;

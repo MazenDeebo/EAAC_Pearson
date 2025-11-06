@@ -2,7 +2,6 @@
 
 // DOM Content Loaded Event
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('DOM loaded, initializing...');
     // Initialize all functionality
     initializeNavigation();
     initializeSmoothScrolling();
@@ -15,18 +14,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // ===== NAVIGATION FUNCTIONALITY =====
 function initializeNavigation() {
-    console.log('Initializing navigation...');
     const mobileMenuToggle = document.getElementById('mobileMenuToggle');
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-menu a');
     const dropdowns = document.querySelectorAll('.dropdown');
-    
-    console.log('Found elements:', {
-        mobileMenuToggle: !!mobileMenuToggle,
-        navMenu: !!navMenu,
-        navLinks: navLinks.length,
-        dropdowns: dropdowns.length
-    });
 
     // Mobile menu toggle
     if (mobileMenuToggle) {
@@ -55,21 +46,14 @@ function initializeNavigation() {
     });
 
     // Simple dropdown functionality
-    dropdowns.forEach((dropdown, index) => {
+    dropdowns.forEach(dropdown => {
         const toggle = dropdown.querySelector('.dropdown-toggle');
         const menu = dropdown.querySelector('.dropdown-menu');
-        
-        console.log(`Dropdown ${index}:`, {
-            toggle: !!toggle,
-            menu: !!menu,
-            toggleText: toggle ? toggle.textContent.trim() : 'N/A'
-        });
         
         if (toggle && menu) {
             // Click handler for all devices
             toggle.addEventListener('click', function(e) {
                 e.preventDefault();
-                console.log(`Dropdown ${index} clicked!`);
                 
                 // Close other dropdowns first
                 dropdowns.forEach(otherDropdown => {
@@ -80,10 +64,6 @@ function initializeNavigation() {
                 
                 // Toggle current dropdown
                 dropdown.classList.toggle('active');
-                
-                // Debug log for mobile testing
-                console.log('Dropdown active state:', dropdown.classList.contains('active'));
-                console.log('Menu display:', window.getComputedStyle(menu).display);
             });
         }
     });
@@ -139,19 +119,29 @@ function initializeSmoothScrolling() {
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
             
-            if (targetSection) {
-                const headerHeight = document.querySelector('.header').offsetHeight;
-                const targetPosition = targetSection.offsetTop - headerHeight;
+            // Skip if href is just "#" or empty
+            if (!targetId || targetId === '#' || targetId.length <= 1) {
+                return;
+            }
+            
+            try {
+                const targetSection = document.querySelector(targetId);
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
+                if (targetSection) {
+                    e.preventDefault();
+                    const header = document.querySelector('.header');
+                    const headerHeight = header ? header.offsetHeight : 80;
+                    const targetPosition = targetSection.offsetTop - headerHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            } catch (error) {
+                console.warn('Invalid selector:', targetId, error);
             }
         });
     });
