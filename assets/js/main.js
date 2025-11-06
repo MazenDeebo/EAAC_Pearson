@@ -63,81 +63,64 @@ function initializeNavigation() {
         });
     });
 
-    // Mobile dropdown functionality with direct event delegation
-    // Use event delegation on the nav menu to catch clicks
+    // Simple accordion functionality for mobile course menu
     if (navMenu) {
         navMenu.addEventListener('click', function(e) {
             const clickedElement = e.target;
             
-            // Check if clicked element is a dropdown toggle or its child
-            const dropdownToggle = clickedElement.closest('.dropdown-toggle');
-            
-            if (dropdownToggle) {
+            // Check if clicked element is a dropdown toggle button
+            if (clickedElement.classList.contains('dropdown-toggle')) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                console.log('Dropdown toggle clicked via delegation!');
+                console.log('Course menu button clicked!');
                 
-                const dropdown = dropdownToggle.closest('.dropdown');
+                const dropdown = clickedElement.closest('.dropdown');
                 
                 if (dropdown) {
                     // Close other dropdowns first
                     const allDropdowns = navMenu.querySelectorAll('.dropdown');
                     allDropdowns.forEach(otherDropdown => {
                         if (otherDropdown !== dropdown) {
-                            otherDropdown.classList.remove('active');
-                            otherDropdown.classList.remove('mobile-open');
+                            otherDropdown.classList.remove('mobile-expanded');
                         }
                     });
                     
                     // Toggle current dropdown
-                    dropdown.classList.toggle('active');
-                    dropdown.classList.toggle('mobile-open');
+                    dropdown.classList.toggle('mobile-expanded');
                     
-                    console.log('Dropdown toggled, classes:', dropdown.className);
+                    console.log('Course menu toggled, expanded:', dropdown.classList.contains('mobile-expanded'));
                     
-                    // Check if menu is now visible and force it to be visible
-                    const menu = dropdown.querySelector('.dropdown-menu');
-                    if (menu) {
-                        console.log('Menu display style:', window.getComputedStyle(menu).display);
-                        
-                        // Force the menu to be visible with inline styles
-                        if (dropdown.classList.contains('active')) {
-                            menu.style.display = 'block';
-                            menu.style.visibility = 'visible';
-                            menu.style.opacity = '1';
-                            menu.style.background = '#ff0000';
-                            menu.style.border = '2px solid #00ff00';
-                            menu.style.padding = '10px';
-                            menu.style.margin = '10px 0';
-                            console.log('Forced menu to be visible with inline styles');
-                        } else {
-                            menu.style.display = 'none';
-                            console.log('Hidden menu');
-                        }
+                    // Check if course links are visible
+                    const courseLinks = dropdown.querySelector('.course-links');
+                    if (courseLinks) {
+                        const isVisible = window.getComputedStyle(courseLinks).display !== 'none';
+                        console.log('Course links visible:', isVisible);
                     }
                 }
             }
         });
     }
 
-    // Close dropdowns when clicking outside
+    // Close course menu when clicking outside
     document.addEventListener('click', function(e) {
-        dropdowns.forEach(dropdown => {
-            if (!dropdown.contains(e.target)) {
-                dropdown.classList.remove('active');
-                dropdown.classList.remove('mobile-open');
-            }
-        });
+        if (navMenu && !navMenu.contains(e.target)) {
+            const allDropdowns = navMenu.querySelectorAll('.dropdown');
+            allDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('mobile-expanded');
+            });
+        }
     });
 
-    // Handle window resize for dropdown behavior
+    // Handle window resize for course menu behavior
     window.addEventListener('resize', function() {
-        // Reset dropdown states on resize
-        dropdowns.forEach(dropdown => {
-            dropdown.classList.remove('active');
-            dropdown.classList.remove('mobile-open');
-        });
+        // Reset course menu states on resize
+        if (navMenu) {
+            const allDropdowns = navMenu.querySelectorAll('.dropdown');
+            allDropdowns.forEach(dropdown => {
+                dropdown.classList.remove('mobile-expanded');
+            });
+        }
     });
 
     // Active navigation highlighting
