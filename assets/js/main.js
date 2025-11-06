@@ -18,6 +18,24 @@ function initializeNavigation() {
     const navMenu = document.getElementById('navMenu');
     const navLinks = document.querySelectorAll('.nav-menu a');
     const dropdowns = document.querySelectorAll('.dropdown');
+    
+    // Debug: Check if elements exist
+    console.log('Navigation elements found:', {
+        mobileMenuToggle: !!mobileMenuToggle,
+        navMenu: !!navMenu,
+        dropdowns: dropdowns.length
+    });
+    
+    // Debug: Check dropdown structure
+    dropdowns.forEach((dropdown, index) => {
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        console.log(`Dropdown ${index}:`, {
+            toggle: !!toggle,
+            menu: !!menu,
+            toggleText: toggle ? toggle.textContent.trim() : 'N/A'
+        });
+    });
 
     // Mobile menu toggle
     if (mobileMenuToggle) {
@@ -45,45 +63,48 @@ function initializeNavigation() {
         });
     });
 
-    // Mobile dropdown functionality with force approach
-    dropdowns.forEach(dropdown => {
-        const toggle = dropdown.querySelector('.dropdown-toggle');
-        const menu = dropdown.querySelector('.dropdown-menu');
-        
-        if (toggle && menu) {
-            // Remove any existing event listeners by cloning the element
-            const newToggle = toggle.cloneNode(true);
-            toggle.parentNode.replaceChild(newToggle, toggle);
+    // Mobile dropdown functionality with direct event delegation
+    // Use event delegation on the nav menu to catch clicks
+    if (navMenu) {
+        navMenu.addEventListener('click', function(e) {
+            const clickedElement = e.target;
             
-            // Add new event listener
-            newToggle.addEventListener('click', function(e) {
+            // Check if clicked element is a dropdown toggle or its child
+            const dropdownToggle = clickedElement.closest('.dropdown-toggle');
+            
+            if (dropdownToggle) {
                 e.preventDefault();
                 e.stopPropagation();
                 
-                console.log('Mobile dropdown clicked!'); // Debug log
+                console.log('Dropdown toggle clicked via delegation!');
                 
-                // Close other dropdowns first
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
-                        otherDropdown.classList.remove('mobile-open');
+                const dropdown = dropdownToggle.closest('.dropdown');
+                
+                if (dropdown) {
+                    // Close other dropdowns first
+                    const allDropdowns = navMenu.querySelectorAll('.dropdown');
+                    allDropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                            otherDropdown.classList.remove('mobile-open');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    dropdown.classList.toggle('active');
+                    dropdown.classList.toggle('mobile-open');
+                    
+                    console.log('Dropdown toggled, classes:', dropdown.className);
+                    
+                    // Check if menu is now visible
+                    const menu = dropdown.querySelector('.dropdown-menu');
+                    if (menu) {
+                        console.log('Menu display style:', window.getComputedStyle(menu).display);
                     }
-                });
-                
-                // Toggle current dropdown with both classes
-                dropdown.classList.toggle('active');
-                dropdown.classList.toggle('mobile-open');
-                
-                console.log('Dropdown classes:', dropdown.className); // Debug log
-            });
-            
-            // Also handle touch events for mobile
-            newToggle.addEventListener('touchstart', function(e) {
-                e.preventDefault();
-                this.click();
-            });
-        }
-    });
+                }
+            }
+        });
+    }
 
     // Close dropdowns when clicking outside
     document.addEventListener('click', function(e) {
