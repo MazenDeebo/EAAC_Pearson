@@ -68,6 +68,13 @@ function initializeNavigation() {
         const isMobile = window.innerWidth <= 768;
         
         if (isMobile) {
+            // Check if mobile links already exist to prevent duplicates
+            const existingMobileLinks = navMenu.querySelectorAll('.mobile-course-link');
+            if (existingMobileLinks.length > 0) {
+                console.log('Mobile navigation: Already initialized, skipping');
+                return;
+            }
+            
             // Find the dropdown
             const dropdown = navMenu.querySelector('.dropdown');
             if (dropdown) {
@@ -106,10 +113,13 @@ function initializeNavigation() {
     }
     
     function restoreDesktopDropdown() {
-        // Remove mobile course links
+        // Remove mobile course links and their parent li elements
         const mobileLinks = navMenu.querySelectorAll('.mobile-course-link');
         mobileLinks.forEach(link => {
-            link.parentNode.remove();
+            const parentLi = link.closest('li');
+            if (parentLi) {
+                parentLi.remove();
+            }
         });
         
         // Show dropdown toggle
@@ -117,13 +127,25 @@ function initializeNavigation() {
         if (dropdownToggle) {
             dropdownToggle.style.display = '';
         }
+        
+        console.log('Desktop navigation: Restored dropdown functionality');
     }
     
     // Initialize mobile navigation
     handleMobileNavigation();
     
-    // Handle window resize
-    window.addEventListener('resize', handleMobileNavigation);
+    // Handle window resize with debounce to prevent multiple rapid calls
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function() {
+            console.log('Window resized, reinitializing navigation');
+            // First restore to clean state
+            restoreDesktopDropdown();
+            // Then reinitialize
+            handleMobileNavigation();
+        }, 250);
+    });
 
     // Handle mobile menu link clicks
     navMenu.addEventListener('click', function(e) {
